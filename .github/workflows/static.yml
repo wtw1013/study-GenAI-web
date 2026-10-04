@@ -1,0 +1,42 @@
+name: Deploy Static Content to Pages
+
+on:
+  # 當 main 分支有 git push 時，觸發自動部署
+  push:
+    branches: ["main"]
+  # 允許手動觸發部署
+  workflow_dispatch:
+
+# 設定 GitHub Actions 的權限，允許它修改 Pages 內容
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 確保同一時間只有一個部署任務在執行
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps:deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 部署根目錄下的所有檔案
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
