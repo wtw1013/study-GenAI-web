@@ -3,100 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生成式人工智慧課程教學平台 draft v1</title>
+    <title>生成式人工智慧完整課程教學平台</title>
     <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="https://jsdelivr.net">
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; background: #f8f9fa; }
-        .hero-section { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 60px 0; border-bottom: 5px solid #00d2ff; }
-        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 25px; transition: transform 0.2s; }
-        .card:hover { transform: translateY(-3px); }
-        .card-header-custom { background-color: #ffffff; border-bottom: 2px solid #2a5298; color: #2a5298; font-weight: bold; padding: 15px 20px; border-radius: 10px 10px 0 0; }
-        .btn-learn { background-color: #2a5298; color: white; border: none; }
-        .btn-learn:hover { background-color: #1e3c72; color: white; }
+        .hero-section { background: linear-gradient(135deg, #16a085 0%, #2c3e50 100%); color: white; padding: 50px 0; border-bottom: 5px solid #1abc9c; }
+        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 25px; }
+        .card-header-custom { background-color: #ffffff; border-bottom: 2px solid #16a085; color: #2c3e50; font-weight: bold; padding: 15px 20px; }
+        .sticky-sidebar { position: sticky; top: 20px; }
+        .chapter-title { color: #16a085; font-weight: bold; margin-top: 20px; padding-bottom: 5px; border-bottom: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
     <header class="hero-section text-center">
         <div class="container">
-            <span class="badge bg-info mb-2">Generative AI Curriculum | Chapters 1–12</span>
-            <h1 class="display-5 fw-bold">生成式人工智慧課程 draft v1</h1>
-            <p class="lead mt-3 text-white-50">互動式線上教材平台 ‧ 點擊下方各章節進入深度學習</p>
+            <span class="badge bg-dark mb-2">Generative AI Curriculum | Chapters 1–12</span>
+            <h1 class="display-5 fw-bold">生成式人工智慧完整課程大綱</h1>
+            <p class="lead mt-3 text-white-50">教師版／學生版教材規劃基礎文件總覽</p>
         </div>
     </header>
 
     <div class="container my-5">
-        <!-- 頂部核心總覽 -->
-        <div class="card p-4 bg-white mb-5">
-            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-info-circle-fill me-2"></i>課程導論與網站定位</h4>
-            <p class="mb-0">本平台整合了生成式 AI 從基礎數學、Transformer、RAG 系統、多模態技術到醫學生物資訊等 12 章完整架構，專為學術研究與系統開發設計。</p>
-        </div>
-
-        <h3 class="fw-bold mb-4 text-secondary"><i class="bi bi-journal-bookmark-fill me-2"></i>全課程章節導覽 (1-12章)</h3>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            
-            <!-- Chapter 1 -->
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-header-custom">第 1 章｜生成式 AI 概論</div>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text text-muted flex-grow-1">區分 AI、ML、DL 與生成式 AI 的範圍與核心能力。</p>
-                        <a href="chapters/ch1.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
+        <div class="row">
+            <!-- 左側導覽列 -->
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="card sticky-sidebar p-3">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-list-task me-2"></i>目錄選單</h5>
+                    <div class="list-group list-group-flush small">
+                        <a href="#intro" class="list-group-item list-group-item-action">文件定位</a>
+                        <a href="#goals" class="list-group-item list-group-item-action">全課程能力目標</a>
+                        <a href="#syllabus" class="list-group-item list-group-item-action">第 1 ~ 12 章完整大綱</a>
+                        <a href="#schedule" class="list-group-item list-group-item-action">18 週教學進度</a>
+                        <a href="#extension" class="list-group-item list-group-item-action">延伸規劃與總結</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Chapter 5 (補完 Word 內容) -->
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-header-custom">第 5 章｜Prompt Engineering</div>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text text-muted flex-grow-1">探討角色、任務、零樣本與少樣本提示策略與安全注入防範。</p>
-                        <a href="chapters/ch5.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
+            <!-- 右側核心內容 -->
+            <div class="col-lg-9 col-md-12">
+                
+                <!-- 文件定位 -->
+                <section id="intro" class="card p-4">
+                    <h4 class="fw-bold text-dark"><i class="bi bi-pin-angle-fill text-danger me-2"></i>文件定位與網站使用方式</h4>
+                    <p class="text-muted">本文件整合第 1 至第 12 章的課程架構。每章均包含學習目標、細部章節、建議實作／課堂活動與預期學習成果，可作為教師備課、學生預習、教材擴寫及網站建置的共同藍圖。</p>
+                </section>
+
+                <!-- 能力目標 -->
+                <section id="goals" class="card p-4">
+                    <h4 class="fw-bold text-dark mb-3"><i class="bi bi-shield-check text-success me-2"></i>全課程能力目標</h4>
+                    <ul class="row row-cols-1 row-cols-md-2 g-2 list-unstyled text-secondary small">
+                        <li><i class="bi bi-check-circle me-2 text-success"></i>理解生成式 AI 核心概念與脈絡</li>
+                        <li><i class="bi bi-check-circle me-2 text-success"></i>掌握機器學習與深度學習數學基礎</li>
+                        <li><i class="bi bi-check-circle me-2 text-success"></i>掌握 Transformer、RAG 與 Agent 架構</li>
+                        <li><i class="bi bi-check-circle me-2 text-success"></i>結合醫學、病毒與生物資訊研究</li>
+                    </ul>
+                </section>
+
+                <!-- 完整大綱區塊 -->
+                <section id="syllabus" class="card p-4">
+                    <h4 class="fw-bold text-dark mb-4"><i class="bi bi-book-half text-primary me-2"></i>第 1 ~ 12 章詳細課程大綱</h4>
+
+                    <!-- Ch 1 -->
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="chapter-title my-0">第 1 章｜生成式 AI 概論與發展史</h5>
+                            <a href="chapters/ch1.html" class="btn btn-sm btn-outline-primary">查詢獨立章節頁 <i class="bi bi-search"></i></a>
+                        </div>
+                        <p class="small text-muted mt-2"><strong>學習目標：</strong> 區分 AI、機器學習、深度學習與生成式 AI 的任務與能力限制。</p>
+                        <small class="d-block text-secondary"><strong>章節大綱：</strong> 1.1 人工智慧範圍 | 1.2 機器學習與深度學習 | 1.3 生成與判別差異 | 1.4 自回歸、VAE、GAN與Diffusion | 1.5 Token/Embedding | 1.6 幻覺與風險。</small>
                     </div>
-                </div>
-            </div>
 
-            <!-- Chapter 6 -->
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-header-custom">第 6 章｜RAG 與向量資料庫</div>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text text-muted flex-grow-1">文件切塊、Embedding 語意相似度檢索與知識庫問答原型。</p>
-                        <a href="chapters/ch6.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
+                    <!-- Ch 2 到 Ch 9 採精簡呈現，節省首頁空間 -->
+                    <div class="mb-4">
+                        <h6>第 2 章｜機器學習與深度學習數學基礎</h6>
+                        <small class="text-muted">線性代數、張量形狀、機率統計、微分與梯度下降、損失與評估指標、泛化與過擬合。</small>
                     </div>
-                </div>
-            </div>
-
-            <!-- Chapter 10 (生物醫學與病毒研究核心) -->
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-header-custom">第 10 章｜生資與醫學研究應用</div>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text text-muted flex-grow-1">分析 RNA 結構、蛋白質語言模型、FAISS 近似檢索與拓樸分群。</p>
-                        <a href="chapters/ch10.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
+                    <div class="mb-4">
+                        <h6>第 3 章｜生成模型基礎</h6>
+                        <small class="text-muted">無條件與條件式生成、自回歸解碼、VAE 潛在空間、GAN 對抗訓練、Diffusion 去噪步驟。</small>
                     </div>
-                </div>
-            </div>
-
-            <!-- Chapter 12 -->
-            <div class="col">
-                <div class="card h-100">
-                    <div class="card-header-custom">第 12 章｜研究專題與成果發表</div>
-                    <div class="card-body d-flex flex-column">
-                        <p class="card-text text-muted flex-grow-1">研究問題定義、基準模型設定、消融實驗與可重現性研究報告。</p>
-                        <a href="chapters/ch12.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
+                    <div class="mb-4">
+                        <h6>第 4 章｜Transformer、Attention 與大型語言模型</h6>
+                        <small class="text-muted">Self-Attention 權重、Multi-head attention、預訓練與微調、KV Cache 延遲控制。</small>
                     </div>
-                </div>
-            </div>
+                    <div class="mb-4">
+                        <h6>第 5 章｜Prompt Engineering 與人機協作</h6>
+                        <small class="text-muted">提示詞結構、Zero-shot/Few-shot、結構化 JSON 輸出、長文件分階段處理、提示注入防範。</small>
+                    </div>
+                    <div class="mb-4">
+                        <h6>第 6 章｜RAG、Embedding 與向量資料庫</h6>
+                        <small class="text-muted">文件切塊(Chunk size/Overlap)、Cosine Similarity、近似最近鄰索引、Reranking 策略。</small>
+                    </div>
+                    <div class="mb-4">
+                        <h6>第 7 章｜多模態生成式 AI</h6>
+                        <small class="text-muted">Vision Transformer 與影像 Patch、語音特徵對齊、影片影格抽樣、跨模態融合(Fusion)。</small>
+                    </div>
+                    <div class="mb-4">
+                        <h6>第 8 章｜AI Agents 與工具使用</h6>
+                        <small class="text-muted">任務分解、工具呼叫(API/搜尋)、短期/長期記憶狀態、多 Agent 協作與 Human-in-the-loop。</small>
+                    </div>
+                    <div class="mb-4">
+                        <h6>第 9 章｜生成式 AI 系統工程</h6>
+                        <small class="text-muted">雲端與本地混合部署、量化技術、Golden dataset 測試門檻、延遲與成本取捨。</small>
+                    </div>
 
-        </div>
-    </div>
+                    <!-- Ch 10 -->
+                    <div class="mb-5 bg-light p-3 rounded border-start border-success border-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="my-0 text-success fw-bold">第 10 章｜醫學、病毒與生物資訊研究中的生成式 AI</h5>
+                            <a href="chapters/ch10.html" class="btn btn-sm btn-success">深度查詢 Ch10 頁面 <i class="bi bi-search"></i></a>
+                        </div>
+                        <p class="small text-muted mt-2"><strong>學習目標：</strong> 描述 RNA 結構影像到 Embedding、FAISS、KNN Graph 與拓樸分群流程。</p>
+                        <small class="d-block text-secondary"><strong>章節大綱：</strong> 文獻 RAG、蛋白質/DNA/RNA 語言模型、RNAfold 二級結構、ViT 結構圖提取、FAISS 與 KNN Graph、Leiden/Louvain 拓樸分群、OOD 未知樣本偵測。</small>
+                    </div>
 
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p class="mb-0">© 2026 生成式人工智慧完整課程教學平台 ‧ 多頁面雲端架構</p>
-    </footer>
+                    <!-- Ch 11 & 12 -->
+                    <div class="mb-4">
+                        <h6>第 11 章｜AI 評估、倫理、安全與治理</h6>
+                        <small class="text-muted">真實場景基準測試、事實性與證據鏈、數據代表性與偏差、隱私去識別化、威脅建模。</small>
+                    </div>
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h6 class="my-0 fw-bold">第 12 章｜生成式 AI 研究專題與成果發表</h6>
+                            <a href="chapters/ch12.html" class="btn btn-sm btn-outline-primary">查詢獨立章節頁 <i class="bi bi-search"></i></a>
+                        </div>
+                        <small class="text-muted d-block mt-1">研究假說、基線模型與消融實驗設計、統計檢定與誤差分析、可重現研究紀錄。</small>
+                    </div>
+                </section>
 
-</body>
-</html>
+                <!-- 18週進度表 -->
+                <section id="schedule" class="card p-4">
+                    <h4 class="fw-bold text-dark mb-3"><i class="bi bi-calendar3 me-2"></i>建議教學進度表 (18週)</h4>
+                    <div class="table-responsive small">
+                        <table class="table table-striped table-bordered align-middle">
+                            <thead class="table-dark text-center">
+                                <tr><th>週次</th><th>教學內容</th><th>建議活動</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>第 1 週</td><td>課程導論＋第 1 章</td><td>概念地圖與使用規範</td></tr>
+                                <tr><td>第 2–3 週</td><td>第 2 章</td><td>數學、資料表示與評估實作</td></tr>
+                                <tr><td>第 4 週</td><td>第 3 章</td><td>生成模型比較</td></tr>
+                                <tr><td>第 5–6 週</td><td>第 4 章</td><td>Transformer、Attention 與 LLM</td></tr>
+                                <tr><td>第 7 週</td><td>第 5 章</td><td>Prompt 設計與測試</td></tr>
+                                <tr><td>第 8–9 週</td><td>第 6 章</td><td>Embedding、向量檢索與 RAG</td></tr>
+                                <tr><td>第 10 週</td><td>第 7 章</td><td>多模態小型實驗</td></tr>
+                                <tr><td>第 11 週</td><td>第 8 章</td><td>Agent 工作流程</td></tr>
+                                <tr><td>第 12 週</td><td>第 9 章</td><td>系統工程、測試與部署</td></tr>
+                                <tr><td>第 13–14 週</td><td>第 10 章</td><td>醫學／病毒／生物資訊案例</td></tr>
+                                <tr><td>第 15 週</td><td>第 11 章</td><td>評估、倫理、安全與治理</td></tr>
+                                <tr><td>第 16–18 週</td><td>第 12 章</td><td>專題實作、報告與展示</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
