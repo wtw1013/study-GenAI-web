@@ -3,160 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生成式人工智慧完整課程大綱 Draft v1</title>
-    <!-- 引入 Bootstrap 5 增強美觀排版 -->
+    <title>生成式人工智慧課程教學平台 draft v1</title>
     <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="https://jsdelivr.net">
     <style>
         body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; background: #f8f9fa; }
         .hero-section { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 60px 0; border-bottom: 5px solid #00d2ff; }
-        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 25px; }
+        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 25px; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-3px); }
         .card-header-custom { background-color: #ffffff; border-bottom: 2px solid #2a5298; color: #2a5298; font-weight: bold; padding: 15px 20px; border-radius: 10px 10px 0 0; }
-        .badge-custom { background-color: #eef2f7; color: #2a5298; font-weight: 600; }
-        .table-custom th { background-color: #2a5298; color: white; }
-        .chapter-box { border-left: 4px solid #2a5298; padding-left: 15px; margin-bottom: 20px; }
-        .sticky-sidebar { position: sticky; top: 20px; }
+        .btn-learn { background-color: #2a5298; color: white; border: none; }
+        .btn-learn:hover { background-color: #1e3c72; color: white; }
     </style>
 </head>
 <body>
 
-    <!-- 頂部英雄區塊 -->
     <header class="hero-section text-center">
         <div class="container">
             <span class="badge bg-info mb-2">Generative AI Curriculum | Chapters 1–12</span>
-            <h1 class="display-5 fw-bold">生成式人工智慧完整課程大綱 Draft v1</h1>
-            <p class="lead mt-3 text-white-50">教師版／學生版教材規劃基礎文件 ‧ 可轉製為課程網站、教學平台或線上教材</p>
+            <h1 class="display-5 fw-bold">生成式人工智慧課程 draft v1</h1>
+            <p class="lead mt-3 text-white-50">互動式線上教材平台 ‧ 點擊下方各章節進入深度學習</p>
         </div>
     </header>
 
     <div class="container my-5">
-        <div class="row">
-            <!-- 左側快捷導覽欄 -->
-            <div class="col-lg-3 d-none d-lg-block">
-                <div class="card sticky-sidebar p-3">
-                    <h5 class="fw-bold mb-3"><i class="bi bi-list-task me-2"></i>課程導覽</h5>
-                    <div class="list-group list-group-flush">
-                        <a href="#intro" class="list-group-item list-group-item-action">文件定位與架構</a>
-                        <a href="#overview" class="list-group-item list-group-item-action">全課程架構總覽</a>
-                        <a href="#goals" class="list-group-item list-group-item-action">全課程能力目標</a>
-                        <a href="#ch1" class="list-group-item list-group-item-action">第 1 章｜生成式 AI 概論</a>
-                        <a href="#ch2" class="list-group-item list-group-item-action">第 2 章｜機器學習數學基礎</a>
-                        <a href="#ch3" class="list-group-item list-group-item-action">第 3 章｜生成模型基礎</a>
-                        <a href="#ch4" class="list-group-item list-group-item-action">第 4 章｜Transformer 與 LLM</a>
-                        <a href="#schedule" class="list-group-item list-group-item-action">建議教學進度 (18週)</a>
+        <!-- 頂部核心總覽 -->
+        <div class="card p-4 bg-white mb-5">
+            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-info-circle-fill me-2"></i>課程導論與網站定位</h4>
+            <p class="mb-0">本平台整合了生成式 AI 從基礎數學、Transformer、RAG 系統、多模態技術到醫學生物資訊等 12 章完整架構，專為學術研究與系統開發設計。</p>
+        </div>
+
+        <h3 class="fw-bold mb-4 text-secondary"><i class="bi bi-journal-bookmark-fill me-2"></i>全課程章節導覽 (1-12章)</h3>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            
+            <!-- Chapter 1 -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header-custom">第 1 章｜生成式 AI 概論</div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text text-muted flex-grow-1">區分 AI、ML、DL 與生成式 AI 的範圍與核心能力。</p>
+                        <a href="chapters/ch1.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- 右側主要內容區 -->
-            <div class="col-lg-9 col-md-12">
-                
-                <!-- 文件定位 -->
-                <section id="intro" class="card">
-                    <div class="card-header-custom"><i class="bi bi-file-earmark-text me-2"></i>文件定位與網站使用方式</div>
-                    <div class="card-body">
-                        <p>本文件整合第 1 至第 12 章的課程架構。每章均包含學習目標、細部章節、建議實作／課堂活動與預期學習成果，可作為教師備課、學生預習、教材擴寫及網站建置的共同藍圖。</p>
-                        <h6 class="fw-bold text-secondary mt-4">💡 建議網站架構規劃：</h6>
-                        <div class="row g-3 mt-1">
-                            <div class="col-md-4"><div class="p-3 bg-light rounded text-center"><strong>🏠 首頁</strong><br><small class="text-muted">課程介紹、能力地圖</small></div></div>
-                            <div class="col-md-4"><div class="p-3 bg-light rounded text-center"><strong>🧭 課程導覽</strong><br><small class="text-muted">依 Part 分組列出 1-12 章</small></div></div>
-                            <div class="col-md-4"><div class="p-3 bg-light rounded text-center"><strong>📖 章節頁</strong><br><small class="text-muted">核心概念與技術架構</small></div></div>
-                        </div>
+            <!-- Chapter 5 (補完 Word 內容) -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header-custom">第 5 章｜Prompt Engineering</div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text text-muted flex-grow-1">探討角色、任務、零樣本與少樣本提示策略與安全注入防範。</p>
+                        <a href="chapters/ch5.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
                     </div>
-                </section>
+                </div>
+            </div>
 
-                <!-- 全課程架構總覽 -->
-                <section id="overview" class="card">
-                    <div class="card-header-custom"><i class="bi bi-grid-3x3-gap me-2"></i>全課程架構總覽</div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover align-middle table-custom">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 25%;">課程單元</th>
-                                        <th>涵蓋內容</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr><td><strong>課程導論</strong></td><td>課程定位、能力地圖、學習路徑與學習規範</td></tr>
-                                    <tr><td><strong>Part I｜基礎與模型</strong></td><td>第 1 章生成式 AI 概論；第 2 章機器學習／深度學習數學基礎；第 3 章生成模型</td></tr>
-                                    <tr><td><strong>Part II｜LLM 與 知識系統</strong></td><td>第 4 章 Transformer、Attention 與 LLM；第 5 章 Prompt Engineering；第 6 章 RAG 與 向量資料庫</td></tr>
-                                    <tr><td><strong>Part III｜多模態 AI</strong></td><td>第 7 章多模態生成式 AI</td></tr>
-                                    <tr><td><strong>Part IV｜Agent 與 工程化</strong></td><td>第 8 章 AI Agents；第 9 章生成式 AI 系統工程</td></tr>
-                                    <tr><td><strong>Part V｜醫學、病毒與生資</strong></td><td>第 10 章 Generative AI in Biomedical Research</td></tr>
-                                    <tr><td><strong>Part VI｜評估與治理</strong></td><td>第 11 章 AI 評估、倫理、安全與治理</td></tr>
-                                    <tr><td><strong>Part VII｜研究專題</strong></td><td>第 12 章生成式 AI 研究專題與成果發表</td></tr>
-                                </tbody>
-                            </table>
-                        </div>
+            <!-- Chapter 6 -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header-custom">第 6 章｜RAG 與向量資料庫</div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text text-muted flex-grow-1">文件切塊、Embedding 語意相似度檢索與知識庫問答原型。</p>
+                        <a href="chapters/ch6.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
                     </div>
-                </section>
+                </div>
+            </div>
 
-                <!-- 全課程能力目標 -->
-                <section id="goals" class="card">
-                    <div class="card-header-custom"><i class="bi bi-shield-check me-2"></i>全課程能力目標</div>
-                    <div class="card-body">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="bi bi-check2-circle text-success me-2"></i>理解生成式 AI 的核心概念、主要模型類型與發展脈絡。</li>
-                            <li class="list-group-item"><i class="bi bi-check2-circle text-success me-2"></i>掌握機器學習、深度學習、機率、向量、矩陣與表示學習等基礎。</li>
-                            <li class="list-group-item"><i class="bi bi-check2-circle text-success me-2"></i>理解 Transformer、Attention、LLM、Prompt、RAG、多模態模型與 Agent。</li>
-                            <li class="list-group-item"><i class="bi bi-check2-circle text-success me-2"></i>能設計可評估、可追蹤、可維護的生成式 AI 應用流程。</li>
-                        </ul>
+            <!-- Chapter 10 (生物醫學與病毒研究核心) -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header-custom">第 10 章｜生資與醫學研究應用</div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text text-muted flex-grow-1">分析 RNA 結構、蛋白質語言模型、FAISS 近似檢索與拓樸分群。</p>
+                        <a href="chapters/ch10.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
                     </div>
-                </section>
+                </div>
+            </div>
 
-                <!-- 第 1 章 -->
-                <section id="ch1" class="card">
-                    <div class="card-header-custom">第 1 章｜生成式 AI 概論與發展史</div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge badge-custom p-2">🎯 本章學習目標</span>
-                            <p class="mt-2 text-muted">區分 AI、機器學習、深度學習與生成式 AI，理解生成模型與判別模型差異。</p>
-                        </div>
-                        <div class="chapter-box">
-                            <h6>📌 章節大綱</h6>
-                            <small class="text-secondary">1.1 人工智慧的定義與範圍 | 1.2 機器學習與深度學習 | 1.3 生成式 AI 核心概念 | 1.4 技術發展脈絡</small>
-                        </div>
-                        <div class="bg-light p-3 rounded">
-                            <strong>🛠 建議實作／課堂活動：</strong> 比較規則式系統、傳統 ML 與 LLM 對同一問題的處理方式。
-                        </div>
+            <!-- Chapter 12 -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-header-custom">第 12 章｜研究專題與成果發表</div>
+                    <div class="card-body d-flex flex-column">
+                        <p class="card-text text-muted flex-grow-1">研究問題定義、基準模型設定、消融實驗與可重現性研究報告。</p>
+                        <a href="chapters/ch12.html" class="btn btn-learn mt-3 w-100">進入章節庫 <i class="bi bi-arrow-right-circle ms-1"></i></a>
                     </div>
-                </section>
+                </div>
+            </div>
 
-                <!-- 第 2 章 -->
-                <section id="ch2" class="card">
-                    <div class="card-header-custom">第 2 章｜機器學習與深度學習數學基礎</div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge badge-custom p-2">🎯 本章學習目標</span>
-                            <p class="mt-2 text-muted">掌握向量、矩陣、機率、微分與最佳化的基本意義，閱讀常見 ML/DL 評估指標。</p>
-                        </div>
-                        <div class="bg-light p-3 rounded">
-                            <strong>🛠 建議實作／課堂活動：</strong> 用 Python 計算 cosine similarity、均方誤差與分類評估指標。
-                        </div>
-                    </div>
-                </section>
+        </div>
+    </div>
 
-                <!-- 第 3 章 -->
-                <section id="ch3" class="card">
-                    <div class="card-header-custom">第 3 章｜生成模型基礎</div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge badge-custom p-2">🎯 本章學習目標</span>
-                            <p class="mt-2 text-muted">辨識自回歸、VAE、GAN 與 Diffusion，並依任務提出模型選型理由。</p>
-                        </div>
-                    </div>
-                </section>
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p class="mb-0">© 2026 生成式人工智慧完整課程教學平台 ‧ 多頁面雲端架構</p>
+    </footer>
 
-                <!-- 第 4 章 -->
-                <section id="ch4" class="card">
-                    <div class="card-header-custom">第 4 章｜Transformer、Attention 與大型語言模型</div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge badge-custom p-2">🎯 本章學習目標</span>
-                            <p class="mt-2 text-muted">理解 tokenization、embedding 與位置資訊，說明 Self-Attention 如何整合上下文。</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 建議教學進度表格 -->
+</body>
+</html>
