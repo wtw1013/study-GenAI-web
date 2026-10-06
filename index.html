@@ -3,49 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生成式人工智慧課程教學draft v1</title>
-    <!-- 引入 Bootstrap 5 CDN 確保原框架功能正常 -->
+    <title>生成式人工智慧課程教學 v1.0完整版</title>
+    <!-- 修正：引入完整且正確的 Bootstrap 5 與 Icons CDN 連結 -->
     <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="https://jsdelivr.net">
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; background: #f8f9fa; }
-        .hero-section { background: linear-gradient(135deg, #16a085 0%, #2c3e50 100%); color: white; padding: 50px 0; border-bottom: 5px solid #1abc9c; }
-        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 25px; }
-        .card-header-custom { background-color: #ffffff; border-bottom: 2px solid #16a085; color: #2c3e50; font-weight: bold; padding: 15px 20px; }
-        .sticky-sidebar { position: sticky; top: 20px; }
-        .chapter-title { color: #16a085; font-weight: bold; margin-top: 20px; padding-bottom: 5px; border-bottom: 1px solid #ddd; }
-        
-        /* 核心概念圖 RWD 樣式 */
-        .concept-img-container {
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            background: #f8f9fa;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #16a085 0%, #2c3e50 100%);
+            color: white;
+            padding: 50px 0;
+            border-bottom: 5px solid #1abc9c;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        .sticky-sidebar {
+            position: sticky;
+            top: 20px;
+        }
+        .chapter-title {
+            color: #16a085;
+            font-weight: bold;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .concept-img-wrapper {
             text-align: center;
-            padding: 15px;
             background: #ffffff;
             border-radius: 8px;
+            padding: 15px;
             border: 1px solid #e9ecef;
         }
         .concept-img {
             max-width: 100%;
             height: auto;
-            max-height: 420px;
+            max-height: 400px;
             object-fit: contain;
         }
-
-        /* 點選才連結展開的摺疊次目錄樣式 */
-        .submenu-details {
+        .chapter-dropdown {
             border: 1px solid #e9ecef;
             border-radius: 8px;
             margin-bottom: 12px;
             background-color: #ffffff;
-            transition: all 0.2s ease;
+            transition: all 0.2s ease-in-out;
         }
-        .submenu-details[open] {
-            background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        .chapter-dropdown[open] {
             border-color: #16a085;
+            box-shadow: 0 4px 10px rgba(22, 160, 133, 0.08);
         }
-        .submenu-summary {
-            padding: 12px 20px;
-            font-size: 1rem;
+        .chapter-summary {
+            padding: 14px 20px;
+            font-size: 0.95rem;
             font-weight: 600;
             color: #2c3e50;
             cursor: pointer;
@@ -53,29 +70,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            list-style: none; /* 隱藏原生箭頭 */
+            list-style: none;
         }
-        .submenu-summary::-webkit-details-marker {
-            display: none; /* 隱藏 Safari 原生箭頭 */
+        .chapter-summary::-webkit-details-marker {
+            display: none;
         }
-        .submenu-summary:hover {
+        .chapter-summary:hover {
             color: #16a085;
             background-color: #f8f9fa;
             border-radius: 8px;
         }
-        /* 自訂小箭頭圖標提示 */
-        .submenu-summary::after {
+        .chapter-summary::after {
             content: "＋";
             font-size: 0.9rem;
             color: #16a085;
             font-weight: bold;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s;
         }
-        .submenu-details[open] .submenu-summary::after {
+        .chapter-dropdown[open] .chapter-summary::after {
             content: "－";
             color: #e74c3c;
         }
-        .submenu-content {
+        .chapter-details-content {
             padding: 0 20px 15px 20px;
             border-top: 1px solid #f1f3f5;
             background-color: #fafbfc;
@@ -85,15 +101,14 @@
     </style>
 </head>
 <body>
-
     <header class="hero-section text-center">
         <div class="container">
             <span class="badge bg-dark mb-2">Generative AI Curriculum | Chapters 1–12</span>
-            <h1 class="display-5 fw-bold">生成式人工智慧課程大綱draft v1</h1>
+            <h1 class="display-5 fw-bold">生成式人工智慧課程大綱</h1>
             <p class="lead mt-3 text-white-50">教材規劃基礎文件總覽</p>
         </div>
     </header>
-
+    
     <div class="container my-5">
         <div class="row">
             <!-- 左側導覽列 -->
@@ -103,30 +118,26 @@
                     <div class="list-group list-group-flush small">
                         <a href="#intro" class="list-group-item list-group-item-action">文件定位</a>
                         <a href="#goals" class="list-group-item list-group-item-action">全課程能力目標</a>
-                        <a href="#syllabus" class="list-group-item list-group-item-action">第 1 ~ 12 章大綱(包含次目錄)</a>
-                        <a href="#schedule" class="list-group-item list-group-item-action">15 週教學進度(施工中)</a>
+                        <a href="#syllabus" class="list-group-item list-group-item-action">第 1 ~ 12 章大綱</a>
+                        <a href="#schedule" class="list-group-item list-group-item-action">15 週教學進度表</a>
                     </div>
                 </div>
             </div>
-
+            
             <!-- 右側核心內容 -->
             <div class="col-lg-9 col-md-12">
-                
-                <!-- 文件定位與核心交集架圖 -->
+                <!-- 文件定位 -->
                 <section id="intro" class="card p-4">
                     <h4 class="fw-bold text-dark"><i class="bi bi-pin-angle-fill text-danger me-2"></i>文件定位與網站使用方式</h4>
-                    <p class="text-muted">本文件整合第 1 至第 12 章的課程架構。每章均包含學習目標、細部章節、建議實作／課堂活動與預期學習成果，可作為教師備課、學生預習、教材擴寫及網站建置的共同藍圖。</p>
-                    
-                    <!-- 核心圖表置入區 -->
-                    <div class="mt-3">
-                        <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-diagram-3-fill me-2 text-info"></i>課程核心跨領域架構 (Bioinformatics + AI + Dashboard)</h6>
-                        <div class="concept-img-container">
-                            <!-- 請將下方 src 替換為您本地圖檔的真實名稱（例如：core-architecture.png） -->
-                            <img src="image_WPaEn9.png" alt="Bioinformatics, AI, and Dashboard Core Architecture" class="concept-img">
+                    <p class="text-muted">本文件整合第 1 至第 12 章的課程架構。每章均包含學習目標、細部章節、建議實作與預期成果，結合醫學與生物資訊跨領域應用，作為教師備課與學生學習之藍圖。</p>
+                    <div class="mt-4">
+                        <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-diagram-3-fill text-success me-2"></i>課程核心跨領域交集架構圖</h6>
+                        <div class="concept-img-wrapper">
+                            <img src="image_c4U7Pp.png" alt="Bioinformatics, AI, and Dashboard Core Architecture" class="concept-img">
                         </div>
                     </div>
                 </section>
-
+                
                 <!-- 能力目標 -->
                 <section id="goals" class="card p-4">
                     <h4 class="fw-bold text-dark mb-3"><i class="bi bi-shield-check text-success me-2"></i>全課程能力目標</h4>
@@ -134,65 +145,67 @@
                         <li><i class="bi bi-check-circle me-2 text-success"></i>理解生成式 AI 核心概念與脈絡</li>
                         <li><i class="bi bi-check-circle me-2 text-success"></i>掌握機器學習與深度學習數學基礎</li>
                         <li><i class="bi bi-check-circle me-2 text-success"></i>掌握 Transformer、RAG 與 Agent 架構</li>
-                        <li><i class="bi bi-check-circle me-2 text-success"></i>結合醫學與生物資訊研究</li>
+                        <li><i class="bi bi-check-circle me-2 text-success"></i>結合醫學與生物資訊研究應用</li>
                     </ul>
                 </section>
-
+                
                 <!-- 完整大綱區塊 -->
                 <section id="syllabus" class="card p-4">
                     <h4 class="fw-bold text-dark mb-3"><i class="bi bi-book-half text-primary me-2"></i>第 1 ~ 12 章詳細課程大綱</h4>
-                    <p class="small text-muted mb-4">💡 點選下方包含「＋」號的章節項目即可向下展開完整的次目錄大綱細節。</p>
-
-                    <!-- Ch 1 (預設完整呈現) -->
+                    <p class="small text-muted mb-4">💡 點選下方帶有「＋」號的章節主標題即可展開查閱次目錄大綱細節。</p>
+                    
+                    <!-- Ch 1 -->
                     <div class="mb-4 pb-3 border-bottom">
                         <div class="d-flex justify-content-between align-items-center">
                             <h5 class="chapter-title my-0">第 1 章｜生成式 AI 概論與發展史</h5>
                             <a href="chapters/ch1.html" class="btn btn-sm btn-outline-primary">查詢獨立章節頁 <i class="bi bi-search"></i></a>
                         </div>
-                        <p class="small text-muted mt-2 mb-1"><strong>學習目標：</strong> 區分 AI、機器學習、深度學習與生成式 AI 的任務與能力限制。</p>
-                        <small class="d-block text-secondary"><strong>章節大綱：</strong> 1.1 人工智慧範圍 | 1.2 機器學習與深度學習 | 1.3 生成與判別差異 | 1.4 自回歸、VAE、GAN與Diffusion | 1.5 Token/Embedding | 1.6 幻覺與風險。</small>
+                        <p class="small text-muted mt-2"><strong>學習目標:</strong> 區分 AI、機器學習、深度學習與生成式 AI 的任務與能力限制。</p>
+                        <small class="d-block text-secondary"><strong>章節大綱:</strong> 1.1 人工智慧範圍 | 1.2 機器學習與深度學習 | 1.3 生成與判別差異 | 1.4 自回歸、VAE、GAN與Diffusion | 1.5 Token/Embedding | 1.6 幻覺與風險。</small>
                     </div>
-
-                    <!-- Ch 2 (修改為點選展開的次目錄) -->
-                    <details class="submenu-details">
-                        <summary class="submenu-summary">第 2 章｜機器學習與深度學習數學基礎</summary>
-                        <div class="submenu-content">
-                            <p class="small text-muted mt-2 mb-1"><strong>核心範疇：</strong> 建立深度學習必備的數理邏輯。</p>
+                    
+                    <!-- Ch 2 -->
+                    <details class="chapter-dropdown">
+                        <summary class="chapter-summary">第 2 章｜機器學習與深度學習數學基礎</summary>
+                        <div class="chapter-details-content">
+                            <p class="small text-muted mt-2 mb-1"><strong>核心重點：</strong> 深度學習與表示學習的底層數學工具。</p>
                             <small class="text-secondary d-block">線性代數、張量形狀、機率統計、微分與梯度下降、損失與評估指標、泛化與過擬合。</small>
                         </div>
-                    </details>
-
+                    </</details>
+                    
                     <!-- Ch 3 -->
-                    <details class="submenu-details">
-                        <summary class="submenu-summary">第 3 章｜生成模型基礎</summary>
-                        <div class="submenu-content">
-                            <p class="small text-muted mt-2 mb-1"><strong>核心範疇：</strong> 各大生成演算法底層原理探討。</p>
+                    <details class="chapter-dropdown">
+                        <summary class="chapter-summary">第 3 章｜生成模型基礎</summary>
+                        <div class="chapter-details-content">
+                            <p class="small text-muted mt-2 mb-1"><strong>核心重點：</strong> 四大傳統主流生成網路之架構探討。</p>
                             <small class="text-secondary d-block">無條件與條件式生成、自回歸解碼、VAE 潛在空間、GAN 對抗訓練、Diffusion 去噪步驟。</small>
                         </div>
                     </details>
-
+                    
                     <!-- Ch 4 -->
-                    <details class="submenu-details">
-                        <summary class="submenu-summary">第 4 章｜Transformer、Attention 與大型語言模型</summary>
-                        <div class="submenu-content">
-                            <p class="small text-muted mt-2 mb-1"><strong>核心範疇：</strong> 自然語言處理的革命性基石技術。</p>
+                    <details class="chapter-dropdown">
+                        <summary class="chapter-summary">第 4 章｜Transformer、Attention 與大型語言模型</summary>
+                        <div class="chapter-details-content">
+                            <p class="small text-muted mt-2 mb-1"><strong>核心重點：</strong> 當代 LLM 的骨幹架構與運算控制。</p>
                             <small class="text-secondary d-block">Self-Attention 權重、Multi-head attention、預訓練與微調、KV Cache 延遲控制。</small>
                         </div>
                     </details>
-
+                    
                     <!-- Ch 5 -->
-                    <details class="submenu-details">
-                        <summary class="submenu-summary">第 5 章｜Prompt Engineering 與人機協作</summary>
-                        <div class="submenu-content">
-                            <p class="small text-muted mt-2 mb-1"><strong>核心範疇：</strong> 提示詞高級優化工程與安全控制。</p>
+                    <details class="chapter-dropdown">
+                        <summary class="chapter-summary">第 5 章｜Prompt Engineering 與人機協作</summary>
+                        <div class="chapter-details-content">
+                            <p class="small text-muted mt-2 mb-1"><strong>核心重點：</strong> 高階提示技術、結構化輸出與安全性邊界。</p>
                             <small class="text-secondary d-block">提示詞結構、Zero-shot/Few-shot、結構化 JSON 輸出、長文件分階段處理、提示注入防範。</small>
                         </div>
                     </details>
-
+                    
                     <!-- Ch 6 -->
-                    <details class="submenu-details">
-                        <summary class="submenu-summary">第 6 章｜RAG、Embedding 與向量資料庫</summary>
-                        <div class="submenu-content">
-                            <p class="small text-muted mt-2 mb-1"><strong>核心範疇：</strong> 企業私有知識庫與外部檢索增強生成架構。</p>
+                    <details class="chapter-dropdown">
+                        <summary class="chapter-summary">第 6 章｜RAG、Embedding 與向量資料庫</summary>
+                        <div class="chapter-details-content">
+                            <p class="small text-muted mt-2 mb-1"><strong>核心重點：</strong> 檢托增強生成架構與高維向量空間相似度檢索。</p>
                             <small class="text-secondary d-block">文件切塊(Chunk size/Overlap)、Cosine Similarity、近似最近鄰索引、Reranking 策略。</small>
                         </div>
+                    </details>
+
