@@ -3,159 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>生成式人工智慧完整課程教學平台</title>
+    <title>第 10 章深度查詢｜醫學與生物資訊研究中的生成式 AI</title>
+    <!-- 引入學術風 Bootstrap 5 與 圖示庫 -->
     <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="https://jsdelivr.net">
     <style>
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; background: #f8f9fa; }
-        .hero-section { background: linear-gradient(135deg, #16a085 0%, #2c3e50 100%); color: white; padding: 50px 0; border-bottom: 5px solid #1abc9c; }
-        .card { border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-radius: 10px; margin-bottom: 25px; }
-        .card-header-custom { background-color: #ffffff; border-bottom: 2px solid #16a085; color: #2c3e50; font-weight: bold; padding: 15px 20px; }
-        .sticky-sidebar { position: sticky; top: 20px; }
-        .chapter-title { color: #16a085; font-weight: bold; margin-top: 20px; padding-bottom: 5px; border-bottom: 1px solid #ddd; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; background: #f4f6f9; }
+        .navbar-custom { background-color: #2c3e50; }
+        .page-header { background: linear-gradient(135deg, #117a65 0%, #2471a3 100%); color: white; padding: 50px 0; border-bottom: 5px solid #1abc9c; }
+        .sticky-sidebar { position: sticky; top: 20px; max-height: 85vh; overflow-y: auto; }
+        .card { border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.04); border-radius: 12px; margin-bottom: 30px; }
+        .card-header-custom { background-color: #ffffff; border-bottom: 3px solid #117a65; color: #2c3e50; font-weight: bold; padding: 15px 20px; font-size: 1.15rem; border-radius: 12px 12px 0 0; }
+        .flow-box { background: #eef9f6; border-left: 5px solid #117a65; padding: 15px; font-family: monospace; border-radius: 4px; font-size: 0.95rem; }
+        .table-custom th { background-color: #117a65; color: white; }
+        .badge-level { background-color: #eaf2f8; color: #2471a3; font-weight: bold; border: 1px solid #d4e6f1; }
     </style>
 </head>
 <body>
 
-    <header class="hero-section text-center">
+    <!-- 頂部全站導覽列 -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow-sm">
         <div class="container">
-            <span class="badge bg-dark mb-2">Generative AI Curriculum | Chapters 1–12</span>
-            <h1 class="display-5 fw-bold">生成式人工智慧完整課程大綱</h1>
-            <p class="lead mt-3 text-white-50">教師版／學生版教材規劃基礎文件總覽</p>
+            <a class="navbar-brand d-flex align-middle" href="../index.html">
+                <i class="bi bi-arrow-left-square-fill me-2 text-info"></i> 返回主大綱首頁
+            </a>
+            <span class="navbar-text text-white-50 d-none d-md-block">GENAI CURRICULUM ‧ CHAPTER 10</span>
+        </div>
+    </nav>
+
+    <!-- 頂部英雄視覺區 -->
+    <header class="page-header text-center">
+        <div class="container">
+            <span class="badge bg-dark px-3 py-2 mb-2">Part V ｜ 醫學與生物資訊</span>
+            <h1 class="fw-bold">Chapter 10｜Generative AI in Biomedical Research</h1>
+            <p class="lead mt-2 text-white-50">整合教材｜Web-ready Academic Edition</p>
         </div>
     </header>
 
     <div class="container my-5">
         <div class="row">
-            <!-- 左側導覽列 -->
+            
+            <!-- 左側章節快捷目錄 -->
             <div class="col-lg-3 d-none d-lg-block">
-                <div class="card sticky-sidebar p-3">
-                    <h5 class="fw-bold mb-3"><i class="bi bi-list-task me-2"></i>目錄選單</h5>
+                <div class="card sticky-sidebar p-3 shadow-sm bg-white">
+                    <h6 class="fw-bold text-secondary mb-3 border-bottom pb-2"><i class="bi bi-compass me-2"></i>章節快速跳轉</h6>
                     <div class="list-group list-group-flush small">
-                        <a href="#intro" class="list-group-item list-group-item-action">文件定位</a>
-                        <a href="#goals" class="list-group-item list-group-item-action">全課程能力目標</a>
-                        <a href="#syllabus" class="list-group-item list-group-item-action">第 1 ~ 12 章完整大綱</a>
-                        <a href="#schedule" class="list-group-item list-group-item-action">18 週教學進度</a>
-                        <a href="#extension" class="list-group-item list-group-item-action">延伸規劃與總結</a>
+                        <a href="#objectives" class="list-group-item list-group-item-action">10.0 學習目標與研究主線</a>
+                        <a href="#med-ai" class="list-group-item list-group-item-action">10.1 醫學 AI 的主要類型</a>
+                        <a href="#nlp" class="list-group-item list-group-item-action">10.2 Biomedical NLP & RAG</a>
+                        <a href="#imaging" class="list-group-item list-group-item-action">10.3 醫學影像與 ViT 轉用</a>
+                        <a href="#lang-models" class="list-group-item list-group-item-action">10.4-10.6 OBJ模型</a>
+                        <a href="#rna-struct" class="list-group-item list-group-item-action">10.8 配對矩陣與結構影像化</a>
+                        <a href="#topology" class="list-group-item list-group-item-action">10.10-10.13 演化與 FAISS</a>
+                        <a href="#discovery" class="list-group-item list-group-item-action">10.14-10.16 研究目標與科學發現</a>
+                        <a href="#levels" class="list-group-item list-group-item-action">10.19 課程發展的五個層次</a>
+                        <a href="#project" class="list-group-item list-group-item-action">10.20 實作實驗與思考題</a>
                     </div>
                 </div>
             </div>
 
-            <!-- 右側核心內容 -->
+            <!-- 右側詳細教材內容 -->
             <div class="col-lg-9 col-md-12">
                 
-                <!-- 文件定位 -->
-                <section id="intro" class="card p-4">
-                    <h4 class="fw-bold text-dark"><i class="bi bi-pin-angle-fill text-danger me-2"></i>文件定位與網站使用方式</h4>
-                    <p class="text-muted">本文件整合第 1 至第 12 章的課程架構。每章均包含學習目標、細部章節、建議實作／課堂活動與預期學習成果，可作為教師備課、學生預習、教材擴寫及網站建置的共同藍圖。</p>
-                </section>
-
-                <!-- 能力目標 -->
-                <section id="goals" class="card p-4">
-                    <h4 class="fw-bold text-dark mb-3"><i class="bi bi-shield-check text-success me-2"></i>全課程能力目標</h4>
-                    <ul class="row row-cols-1 row-cols-md-2 g-2 list-unstyled text-secondary small">
-                        <li><i class="bi bi-check-circle me-2 text-success"></i>理解生成式 AI 核心概念與脈絡</li>
-                        <li><i class="bi bi-check-circle me-2 text-success"></i>掌握機器學習與深度學習數學基礎</li>
-                        <li><i class="bi bi-check-circle me-2 text-success"></i>掌握 Transformer、RAG 與 Agent 架構</li>
-                        <li><i class="bi bi-check-circle me-2 text-success"></i>結合醫學、病毒與生物資訊研究</li>
-                    </ul>
-                </section>
-
-                <!-- 完整大綱區塊 -->
-                <section id="syllabus" class="card p-4">
-                    <h4 class="fw-bold text-dark mb-4"><i class="bi bi-book-half text-primary me-2"></i>第 1 ~ 12 章詳細課程大綱</h4>
-
-                    <!-- Ch 1 -->
-                    <div class="mb-5">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="chapter-title my-0">第 1 章｜生成式 AI 概論與發展史</h5>
-                            <a href="chapters/ch1.html" class="btn btn-sm btn-outline-primary">查詢獨立章節頁 <i class="bi bi-search"></i></a>
+                <!-- 10.0 學習目標與主線 -->
+                <section id="objectives" class="card">
+                    <div class="card-header-custom"><i class="bi bi-bookmark-star-fill me-2 text-warning"></i>10.0 本章定位與研究主線</div>
+                    <div class="card-body">
+                        <h6>🎯 本章學習目標</h6>
+                        <ul class="text-secondary small row row-cols-1 row-cols-md-2 g-2 ps-3">
+                            <li>理解 AI 在醫學與生物資訊研究中的主要角色。</li>
+                            <li>理解 Biomedical與基礎模型。</li>
+                            <li>理解 基本思想。</li>
+                            <li>掌握 <code>FAISS ➡️ KNN Graph ➡️ Clustering</code> 完整流程。</li>
+                            <li>理解 <code>topology divergence</code> 如何形成可驗證的演化研究假說。</li>
+                        </ul>
+                        
+                        <h6 class="mt-4 fw-bold text-primary">🧬 技術核心演進主線：</h6>
+                        <div class="flow-box mb-3 text-center">
+                            Generative AI ➡️ Foundation Models ➡️ Foundation Models ➡️ Representation ➡️ Testing ➡️ Similarity ➡️ Clustering ➡️ Scientific Discovery
                         </div>
-                        <p class="small text-muted mt-2"><strong>學習目標：</strong> 區分 AI、機器學習、深度學習與生成式 AI 的任務與能力限制。</p>
-                        <small class="d-block text-secondary"><strong>章節大綱：</strong> 1.1 人工智慧範圍 | 1.2 機器學習與深度學習 | 1.3 生成與判別差異 | 1.4 自回歸、VAE、GAN與Diffusion | 1.5 Token/Embedding | 1.6 幻覺與風險。</small>
-                    </div>
-
-                    <!-- Ch 2 到 Ch 9 採精簡呈現，節省首頁空間 -->
-                    <div class="mb-4">
-                        <h6>第 2 章｜機器學習與深度學習數學基礎</h6>
-                        <small class="text-muted">線性代數、張量形狀、機率統計、微分與梯度下降、損失與評估指標、泛化與過擬合。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 3 章｜生成模型基礎</h6>
-                        <small class="text-muted">無條件與條件式生成、自回歸解碼、VAE 潛在空間、GAN 對抗訓練、Diffusion 去噪步驟。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 4 章｜Transformer、Attention 與大型語言模型</h6>
-                        <small class="text-muted">Self-Attention 權重、Multi-head attention、預訓練與微調、KV Cache 延遲控制。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 5 章｜Prompt Engineering 與人機協作</h6>
-                        <small class="text-muted">提示詞結構、Zero-shot/Few-shot、結構化 JSON 輸出、長文件分階段處理、提示注入防範。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 6 章｜RAG、Embedding 與向量資料庫</h6>
-                        <small class="text-muted">文件切塊(Chunk size/Overlap)、Cosine Similarity、近似最近鄰索引、Reranking 策略。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 7 章｜多模態生成式 AI</h6>
-                        <small class="text-muted">Vision Transformer 與影像 Patch、語音特徵對齊、影片影格抽樣、跨模態融合(Fusion)。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 8 章｜AI Agents 與工具使用</h6>
-                        <small class="text-muted">任務分解、工具呼叫(API/搜尋)、短期/長期記憶狀態、多 Agent 協作與 Human-in-the-loop。</small>
-                    </div>
-                    <div class="mb-4">
-                        <h6>第 9 章｜生成式 AI 系統工程</h6>
-                        <small class="text-muted">雲端與本地混合部署、量化技術、Golden dataset 測試門檻、延遲與成本取捨。</small>
-                    </div>
-
-                    <!-- Ch 10 -->
-                    <div class="mb-5 bg-light p-3 rounded border-start border-success border-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="my-0 text-success fw-bold">第 10 章｜醫學、病毒與生物資訊研究中的生成式 AI</h5>
-                            <a href="chapters/ch10.html" class="btn btn-sm btn-success">深度查詢 Ch10 頁面 <i class="bi bi-search"></i></a>
+                        
+                        <h6 class="fw-bold text-success">🔬 研究主線：</h6>
+                        <div class="flow-box text-center bg-light border-success">
+                            Test1 ➡️ Test2 ➡️ Test3 ➡️ Test4 ➡️ ViT ➡️ Test5 ➡️ FAISS ➡️ KNN Graph ➡️ Test6 ➡️ Test7
                         </div>
-                        <p class="small text-muted mt-2"><strong>學習目標：</strong> 描述 RNA 結構影像到 Embedding、FAISS、KNN Graph 與拓樸分群流程。</p>
-                        <small class="d-block text-secondary"><strong>章節大綱：</strong> 文獻 RAG、蛋白質/DNA/RNA 語言模型、RNAfold 二級結構、ViT 結構圖提取、FAISS 與 KNN Graph、Leiden/Louvain 拓樸分群、OOD 未知樣本偵測。</small>
-                    </div>
-
-                    <!-- Ch 11 & 12 -->
-                    <div class="mb-4">
-                        <h6>第 11 章｜AI 評估、倫理、安全與治理</h6>
-                        <small class="text-muted">真實場景基準測試、事實性與證據鏈、數據代表性與偏差、隱私去識別化、威脅建模。</small>
-                    </div>
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h6 class="my-0 fw-bold">第 12 章｜生成式 AI 研究專題與成果發表</h6>
-                            <a href="chapters/ch12.html" class="btn btn-sm btn-outline-primary">查詢獨立章節頁 <i class="bi bi-search"></i></a>
-                        </div>
-                        <small class="text-muted d-block mt-1">研究假說、基線模型與消融實驗設計、統計檢定與誤差分析、可重現研究紀錄。</small>
                     </div>
                 </section>
 
-                <!-- 18週進度表 -->
-                <section id="schedule" class="card p-4">
-                    <h4 class="fw-bold text-dark mb-3"><i class="bi bi-calendar3 me-2"></i>建議教學進度表 (18週)</h4>
-                    <div class="table-responsive small">
-                        <table class="table table-striped table-bordered align-middle">
-                            <thead class="table-dark text-center">
-                                <tr><th>週次</th><th>教學內容</th><th>建議活動</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>第 1 週</td><td>課程導論＋第 1 章</td><td>概念地圖與使用規範</td></tr>
-                                <tr><td>第 2–3 週</td><td>第 2 章</td><td>數學、資料表示與評估實作</td></tr>
-                                <tr><td>第 4 週</td><td>第 3 章</td><td>生成模型比較</td></tr>
-                                <tr><td>第 5–6 週</td><td>第 4 章</td><td>Transformer、Attention 與 LLM</td></tr>
-                                <tr><td>第 7 週</td><td>第 5 章</td><td>Prompt 設計與測試</td></tr>
-                                <tr><td>第 8–9 週</td><td>第 6 章</td><td>Embedding、向量檢索與 RAG</td></tr>
-                                <tr><td>第 10 週</td><td>第 7 章</td><td>多模態小型實驗</td></tr>
-                                <tr><td>第 11 週</td><td>第 8 章</td><td>Agent 工作流程</td></tr>
-                                <tr><td>第 12 週</td><td>第 9 章</td><td>系統工程、測試與部署</td></tr>
-                                <tr><td>第 13–14 週</td><td>第 10 章</td><td>醫學／病毒／生物資訊案例</td></tr>
-                                <tr><td>第 15 週</td><td>第 11 章</td><td>評估、倫理、安全與治理</td></tr>
-                                <tr><td>第 16–18 週</td><td>第 12 章</td><td>專題實作、報告與展示</td></tr>
-                            </tbody>
-                        </table>
+                <!-- 10.1 M AI -->
+                <section id="med-ai" class="card">
+                    <div class="card-header-custom"><i class="bi bi-heart-pulse-fill text-danger me-2"></i>10.1 AI in Medicine</div>
+                    <div class="card-body">
+                        <p class="small text-muted">資料具有大量、異質、高維度等特性（Test）。</p>
+                        
+                        <div class="table-responsive my-3">
+                            <table class="table table-bordered table-custom small align-middle">
+                                <thead>
+                                    <tr><th>分類類型</th><th>主要任務與研究方向</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Diagnostic / Predictive AI</strong></td><td>診斷輔助與風險／結果預測</td></tr>
+                                    <tr><td><strong>Imaging AI</strong></td><td>分析與特徵表示學習（Discriminative）</td></tr>
+                                    <tr><td><strong>Biomedical NLP</strong></td><td>文字、文獻理解與生成處理</td></tr>
+                                    <tr><td><strong>Genomics / Drug AI</strong></td><td>TEST分析與分子探索</td></tr>
+                                    <tr><td><strong>Generative / Agentic AI</strong></td><td>候選生成、多步驟研究自動化工作流</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="alert alert-warning small py-2 mb-0">
+                            <strong>⚠️ 重要研究原則：</strong>生成式 AI 產出的內容不能直接等同於證據或科學證據。
+                        </div>
                     </div>
                 </section>
 
+                <!-- 10.2 Biomedical NLP -->
+                <section id="nlp" class="card">
+                    <div class="card-header-custom"><i class="bi bi-file-text-fill text-primary me-2"></i>10.2 知識 RAG</div>
+                    <div class="card-body">
+                        <p class="small">表型及通路等專業實體。以下為文獻知識萃取流水線：</p>
+                        <div class="flow-box small mb-3">
+                            Test1 Literature ➡️ Tokenization ➡️ Test2 ➡️ Language Model ➡️ Test3 ➡️ Knowledge Extraction
+                        </div>
+                        
+                        <h6>🔬 命名實體識別範例：</h6>
+                        <div class="bg-light p-3 rounded mb-3 font-monospace small">
+                            "OBJ affects host adaptation."<br>
+                            ➡️ <strong>OBJ:</strong> Test | <strong>OBJ2:</strong> M | <strong>Host:</strong> Context | <strong>Adaptation:</strong> Function
+                        </div>
+
+                        <h6>🧬 研究知識助理 (RAG)：</h6>
+                        <p class="small text-muted">Scientific Papers ➡️ Chunking ➡️ Test ➡️ Vector DB ➡️ Semantic Retrieval ➡️ LLM ➡️ Research Answer。這能讓研究問題精準獲得文獻佐證。</p>
+                    </div>
+                </section>
+
+                <!-- 10.3 影像 AI 與 ViT -->
+                <section id="imaging" class="card">
+                    <div class="card-header-custom"><i class="bi bi-image-fill text-success me-2"></i>10.3 Imaging & Vision Transformer 轉用</div>
+                    <div class="card-body">
+                        <p class="small">Vision Transformer (ViT) 的核心概念是把影像切成 Patch，將 Patch 視為類似 Token 的輸入單位：</p>
+                        <div class="flow-box small mb-3">
+                            Image ➡️ Patch Extraction ➡️ Patch Embedding ➡️ Transformer ➡️ Image 
+                        </div>
+                        <h6>💡 為何這項技術研究有關？</h6>
+                        <p class="small text-secondary">因為 RNA 結構可以被轉換為 <strong>2D 矩陣／二值影像 (Pairing Matrix)</strong>。因此，影像 AI 的「表示學習 (Representation Learning)」可以被完美轉用到特徵提煉上：</p>
+                        <div class="flow-box small bg-light border-primary">
+                            Test ➡️ 2D Matrix / Image ➡️ ViT ➡️ Testing
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10.4-10.6 語言模型 -->
