@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>第 10 章深度查詢｜醫學與生物資訊研究中的生成式 AI(施工中)</title>
+    <title>第 10 章深度查詢｜醫學、病毒與生物資訊研究中的生成式 AI</title>
     <!-- 引入學術風 Bootstrap 5 與 圖示庫 -->
     <link href="https://jsdelivr.net" rel="stylesheet">
     <link rel="stylesheet" href="https://jsdelivr.net">
@@ -34,9 +34,9 @@
     <!-- 頂部英雄視覺區 -->
     <header class="page-header text-center">
         <div class="container">
-            <span class="badge bg-dark px-3 py-2 mb-2">Part V ｜ 醫學與生物資訊</span>
+            <span class="badge bg-dark px-3 py-2 mb-2">Part V ｜ 醫學、病毒與生物資訊</span>
             <h1 class="fw-bold">Chapter 10｜Generative AI in Biomedical Research</h1>
-            <p class="lead mt-2 text-white-50">整合教材｜Web-ready Academic Edition</p>
+            <p class="lead mt-2 text-white-50">教師版／學生版整合教材｜Web-ready Academic Edition</p>
         </div>
     </header>
 
@@ -46,16 +46,16 @@
             <!-- 左側章節快捷目錄 -->
             <div class="col-lg-3 d-none d-lg-block">
                 <div class="card sticky-sidebar p-3 shadow-sm bg-white">
-                    <h6 class="fw-bold text-secondary mb-3 border-bottom pb-2"><i class="bi bi-compass me-2"></i>章節快速跳轉(施工中)</h6>
+                    <h6 class="fw-bold text-secondary mb-3 border-bottom pb-2"><i class="bi bi-compass me-2"></i>章節快速跳轉</h6>
                     <div class="list-group list-group-flush small">
-                        <a href="#objectives" class="list-group-item list-group-item-action">10.0 學習目標與研究主線(施工中)</a>
+                        <a href="#objectives" class="list-group-item list-group-item-action">10.0 學習目標與研究主線</a>
                         <a href="#med-ai" class="list-group-item list-group-item-action">10.1 醫學 AI 的主要類型</a>
                         <a href="#nlp" class="list-group-item list-group-item-action">10.2 Biomedical NLP & RAG</a>
                         <a href="#imaging" class="list-group-item list-group-item-action">10.3 醫學影像與 ViT 轉用</a>
-                        <a href="#lang-models" class="list-group-item list-group-item-action">10.4-10.6 OBJ模型</a>
+                        <a href="#lang-models" class="list-group-item list-group-item-action">10.4-10.6 蛋白質/DNA/RNA 模型</a>
                         <a href="#rna-struct" class="list-group-item list-group-item-action">10.8 配對矩陣與結構影像化</a>
-                        <a href="#topology" class="list-group-item list-group-item-action">10.10-10.13 演化與 FAISS</a>
-                        <a href="#discovery" class="list-group-item list-group-item-action">10.14-10.16 研究目標與科學發現</a>
+                        <a href="#topology" class="list-group-item list-group-item-action">10.10-10.13 拓樸演化與 FAISS</a>
+                        <a href="#discovery" class="list-group-item list-group-item-action">10.14-10.16 多模態科學發現</a>
                         <a href="#levels" class="list-group-item list-group-item-action">10.19 課程發展的五個層次</a>
                         <a href="#project" class="list-group-item list-group-item-action">10.20 實作實驗與思考題</a>
                     </div>
@@ -65,36 +65,36 @@
             <!-- 右側詳細教材內容 -->
             <div class="col-lg-9 col-md-12">
                 
-                <!-- 10.0 學習目標與主線(施工中) -->
+                <!-- 10.0 學習目標與主線 -->
                 <section id="objectives" class="card">
                     <div class="card-header-custom"><i class="bi bi-bookmark-star-fill me-2 text-warning"></i>10.0 本章定位與研究主線</div>
                     <div class="card-body">
                         <h6>🎯 本章學習目標</h6>
                         <ul class="text-secondary small row row-cols-1 row-cols-md-2 g-2 ps-3">
                             <li>理解 AI 在醫學與生物資訊研究中的主要角色。</li>
-                            <li>理解 Biomedical與基礎模型。</li>
-                            <li>理解 基本思想。</li>
-                            <li>掌握 <code>FAISS ➡️ KNN Graph ➡️ Clustering</code> 完整流程。</li>
+                            <li>理解 Biomedical NLP、Medical Imaging 與基礎模型。</li>
+                            <li>理解 Protein、DNA、RNA Language Models 基本思想。</li>
+                            <li>掌握 <code>ViT ➡️ Embedding ➡️ FAISS ➡️ KNN Graph ➡️ Clustering</code> 完整流程。</li>
                             <li>理解 <code>topology divergence</code> 如何形成可驗證的演化研究假說。</li>
                         </ul>
                         
                         <h6 class="mt-4 fw-bold text-primary">🧬 技術核心演進主線：</h6>
                         <div class="flow-box mb-3 text-center">
-                            Generative AI ➡️ Foundation Models ➡️ Foundation Models ➡️ Representation ➡️ Testing ➡️ Similarity ➡️ Clustering ➡️ Scientific Discovery
+                            Generative AI ➡️ Foundation Models ➡️ Biomedical Foundation Models ➡️ Sequence/Structure Representation ➡️ Embedding ➡️ Similarity ➡️ Clustering ➡️ Scientific Discovery
                         </div>
                         
-                        <h6 class="fw-bold text-success">🔬 研究主線：</h6>
+                        <h6 class="fw-bold text-success">🔬 病毒基因體演化研究主線：</h6>
                         <div class="flow-box text-center bg-light border-success">
-                            Test1 ➡️ Test2 ➡️ Test3 ➡️ Test4 ➡️ ViT ➡️ Test5 ➡️ FAISS ➡️ KNN Graph ➡️ Test6 ➡️ Test7
+                            Viral Genome/RNA ➡️ Sequence ➡️ RNA Secondary Structure ➡️ Pairing Matrix/Image ➡️ ViT ➡️ Embedding ➡️ FAISS ➡️ KNN Graph ➡️ Topology Clustering ➡️ Evolution
                         </div>
                     </div>
                 </section>
 
-                <!-- 10.1 M AI -->
+                <!-- 10.1 醫學 AI -->
                 <section id="med-ai" class="card">
                     <div class="card-header-custom"><i class="bi bi-heart-pulse-fill text-danger me-2"></i>10.1 AI in Medicine</div>
                     <div class="card-body">
-                        <p class="small text-muted">資料具有大量、異質、高維度等特性（Test）。</p>
+                        <p class="small text-muted">醫學資料具有大量、異質、多模態與高維度等特性（臨床記錄、影像、體學資料、文獻）。</p>
                         
                         <div class="table-responsive my-3">
                             <table class="table table-bordered table-custom small align-middle">
@@ -103,53 +103,53 @@
                                 </thead>
                                 <tbody>
                                     <tr><td><strong>Diagnostic / Predictive AI</strong></td><td>診斷輔助與風險／結果預測</td></tr>
-                                    <tr><td><strong>Imaging AI</strong></td><td>分析與特徵表示學習（Discriminative）</td></tr>
-                                    <tr><td><strong>Biomedical NLP</strong></td><td>文字、文獻理解與生成處理</td></tr>
-                                    <tr><td><strong>Genomics / Drug AI</strong></td><td>TEST分析與分子探索</td></tr>
-                                    <tr><td><strong>Generative / Agentic AI</strong></td><td>候選生成、多步驟研究自動化工作流</td></tr>
+                                    <tr><td><strong>Imaging AI</strong></td><td>醫學影像分析與特徵表示學習（Discriminative）</td></tr>
+                                    <tr><td><strong>Biomedical NLP</strong></td><td>醫學文字、文獻理解與生成處理</td></tr>
+                                    <tr><td><strong>Genomics / Drug AI</strong></td><td>基因體分析、藥物與分子探索</td></tr>
+                                    <tr><td><strong>Generative / Agentic AI</strong></td><td>候選序列生成、多步驟研究自動化工作流</td></tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="alert alert-warning small py-2 mb-0">
-                            <strong>⚠️ 重要研究原則：</strong>生成式 AI 產出的內容不能直接等同於證據或科學證據。
+                            <strong>⚠️ 重要研究原則：</strong>生成式 AI 產出的內容不能直接等同於臨床證據或科學證據。
                         </div>
                     </div>
                 </section>
 
                 <!-- 10.2 Biomedical NLP -->
                 <section id="nlp" class="card">
-                    <div class="card-header-custom"><i class="bi bi-file-text-fill text-primary me-2"></i>10.2 知識 RAG</div>
+                    <div class="card-header-custom"><i class="bi bi-file-text-fill text-primary me-2"></i>10.2 Biomedical NLP & 知識 RAG</div>
                     <div class="card-body">
-                        <p class="small">表型及通路等專業實體。以下為文獻知識萃取流水線：</p>
+                        <p class="small">Biomedical NLP 處理包含疾病、基因、蛋白質、突變、表型及通路等專業實體。以下為文獻知識萃取流水線：</p>
                         <div class="flow-box small mb-3">
-                            Test1 Literature ➡️ Tokenization ➡️ Test2 ➡️ Language Model ➡️ Test3 ➡️ Knowledge Extraction
+                            Biomedical Literature ➡️ Tokenization ➡️ Embedding ➡️ Language Model ➡️ NER/Classification ➡️ Knowledge Extraction
                         </div>
                         
-                        <h6>🔬 命名實體識別範例：</h6>
+                        <h6>🔬 生物醫學命名實體識別 (NER) 範例：</h6>
                         <div class="bg-light p-3 rounded mb-3 font-monospace small">
-                            "OBJ affects host adaptation."<br>
-                            ➡️ <strong>OBJ:</strong> Test | <strong>OBJ2:</strong> M | <strong>Host:</strong> Context | <strong>Adaptation:</strong> Function
+                            "PB2 E627K mutation affects host adaptation."<br>
+                            ➡️ <strong>PB2:</strong> Protein | <strong>E627K:</strong> Mutation | <strong>Host:</strong> Context | <strong>Adaptation:</strong> Function
                         </div>
 
-                        <h6>🧬 研究知識助理 (RAG)：</h6>
-                        <p class="small text-muted">Scientific Papers ➡️ Chunking ➡️ Test ➡️ Vector DB ➡️ Semantic Retrieval ➡️ LLM ➡️ Research Answer。這能讓研究問題精準獲得文獻佐證。</p>
+                        <h6>🧬 病毒研究知識助理 (Biomedical RAG)：</h6>
+                        <p class="small text-muted">Scientific Papers ➡️ Chunking ➡️ Embedding ➡️ Vector DB ➡️ Semantic Retrieval ➡️ LLM ➡️ Research Answer。這能讓研究問題精準獲得文獻佐證。</p>
                     </div>
                 </section>
 
                 <!-- 10.3 影像 AI 與 ViT -->
                 <section id="imaging" class="card">
-                    <div class="card-header-custom"><i class="bi bi-image-fill text-success me-2"></i>10.3 Imaging & Vision Transformer 轉用</div>
+                    <div class="card-header-custom"><i class="bi bi-image-fill text-success me-2"></i>10.3 Medical Imaging & Vision Transformer 轉用</div>
                     <div class="card-body">
                         <p class="small">Vision Transformer (ViT) 的核心概念是把影像切成 Patch，將 Patch 視為類似 Token 的輸入單位：</p>
                         <div class="flow-box small mb-3">
-                            Image ➡️ Patch Extraction ➡️ Patch Embedding ➡️ Transformer ➡️ Image 
+                            Image ➡️ Patch Extraction ➡️ Patch Embedding ➡️ Transformer ➡️ Image Embedding
                         </div>
-                        <h6>💡 為何這項技術研究有關？</h6>
-                        <p class="small text-secondary">因為 RNA 結構可以被轉換為 <strong>2D 矩陣／二值影像 (Pairing Matrix)</strong>。因此，影像 AI 的「表示學習 (Representation Learning)」可以被完美轉用到特徵提煉上：</p>
+                        <h6>💡 為何這項技術與 RNA 二級結構研究有關？</h6>
+                        <p class="small text-secondary">因為 RNA 結構可以被轉換為 <strong>2D 矩陣／二值影像 (Pairing Matrix)</strong>。因此，影像 AI 的「表示學習 (Representation Learning)」可以被完美轉用到 RNA 結構的特徵提煉上：</p>
                         <div class="flow-box small bg-light border-primary">
-                            Test ➡️ 2D Matrix / Image ➡️ ViT ➡️ Testing
+                            RNA Structure ➡️ 2D Matrix / Image ➡️ ViT ➡️ Embedding
                         </div>
                     </div>
                 </section>
 
-                <!-- 10.4-10.6 語言模型 -->
+                <!-- 10.4-10.6 生物大分子語言模型 -->
